@@ -1,3 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- DRAFT: 公開URL確定後、実際の絶対URLで生成してください。 -->
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://pcotasuke.github.io/DataMichiShirube/about.html</loc></url>
+  <url><loc>https://pcotasuke.github.io/DataMichiShirube/articles.html</loc></url>
+  <url><loc>https://pcotasuke.github.io/DataMichiShirube/contact.html</loc></url>
+  <url><loc>https://pcotasuke.github.io/DataMichiShirube/</loc></url>
+  <url><loc>https://pcotasuke.github.io/DataMichiShirube/privacy.html</loc></url>
+  <url><loc>https://pcotasuke.github.io/DataMichiShirube/articles/image-formats.html</loc></url>
+  <url><loc>https://pcotasuke.github.io/DataMichiShirube/articles/image-size.html</loc></url>
+  <url><loc>https://pcotasuke.github.io/DataMichiShirube/articles/pdf-text.html</loc></url>
+  <url><loc>https://pcotasuke.github.io/DataMichiShirube/articles/sync-backup.html</loc></url>
+  <url><loc>https://pcotasuke.github.io/DataMichiShirube/articles/zip-extract.html</loc></url>
+</urlset>
