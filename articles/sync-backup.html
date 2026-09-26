@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>同期とバックアップは同じ？「消したとき」を考えると違いが分かる | データの道しるべ</title>
+  <meta name="description" content="クラウドにあるから安心、とは限りません。同期による削除の反映、履歴機能との違い、練習ファイルを使った復元確認を整理します。">
+  <!-- DRAFT-NOINDEX: 公開URLと運営情報を確定後に削除します。 -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="データの道しるべ">
+  <meta property="og:title" content="同期とバックアップは同じ？「消したとき」を考えると違いが分かる">
+  <meta property="og:description" content="クラウドにあるから安心、とは限りません。同期による削除の反映、履歴機能との違い、練習ファイルを使った復元確認を整理します。">
+  <!-- PUBLIC-URL: 公開先の確定後にcanonicalとog:urlを追加します。 -->
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../style.css">
+  <script src="../script.js" defer>
+</script>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+<header class="site-header">
+<div class="wrap header-inner">
+<a class="brand" href="../index.html">
+<span class="mark" aria-hidden="true">↗</span>データの道しるべ</a>
+<nav aria-label="メインナビゲーション">
+<a href="../articles.html">記事一覧</a>
+<a href="../about.html">このサイトについて</a>
+<a href="../contact.html">お問い合わせ</a>
+</nav>
+</div>
+</header>
+<main id="main" class="wrap">
+<nav class="breadcrumb" aria-label="パンくず">
+<a href="../index.html">ホーム</a>
+<span>/</span>
+<a href="../articles.html">記事一覧</a>
+<span>/ 保存・共有</span>
+</nav>
+<header class="page-heading">
+<p class="eyebrow">保存・共有 / GUIDE 04</p>
+<h1>同期とバックアップは同じ？「消したとき」を考えると違いが分かる</h1>
+<p class="lead">同じ状態にそろえる仕組みと、前の状態を残す仕組み。削除・上書きの例で考えます。</p>
+<p class="meta">作成：<time datetime="2026-09-26">2026年9月26日</time>　・　約7分　・　<a href="../about.html">編集方針</a>
+</p>
+</header>
+<div class="article-layout">
+<article class="article">
+<div class="answer">
+<strong>先に答え</strong>
+<p>同期は複数の場所を同じ状態にそろえる仕組み、バックアップは失ったり壊れたりしたときに戻せるコピーを残す取り組みです。クラウドサービスが両方の機能を持つ場合もあるので、名称より「削除や上書きから戻せるか」を確認します。</p>
+</div>
+<section aria-labelledby="example">
+<h2 id="example">PCで消したら、クラウドにも反映されることがある</h2>
+<p>仮に、PCとクラウドに同じ <code>memo.txt</code> があるとします。PC側で修正するとクラウド側にも反映されるなら便利ですが、削除も反映される設定なら、PCで消したあとクラウド側の一覧からも消えます。「二か所で見える」ことは、「独立した二つのコピーを持つ」ことと必ずしも同じではありません。</p>
+<figure class="diagram">
+<div class="flow">
+<div class="flow-box">
+<b>PC側を変更</b>
+<span>編集・上書き・削除</span>
+</div>
+<span aria-hidden="true">↔</span>
+<div class="flow-box">
+<b>クラウド側へ反映</b>
+<span>設定に応じて状態がそろう</span>
+</div>
+</div>
+<figcaption>同期の概念図。サービスや同期方向によって動作は異なります。</figcaption>
+</figure>
+<p>OneDriveでは、OneDrive内のファイルの削除が他の場所にも影響するため、<a href="https://support.microsoft.com/en-us/onedrive/delete-files-or-folders-in-onedrive" target="_blank" rel="noopener noreferrer">公式の削除案内</a>を確認する必要があります。特に「PCの空きを増やしたい」と「ファイルをどこからも消したい」は別の目的です。オンライン専用への変更と削除を混同しないようにします。</p>
+</section>
+<section aria-labelledby="restore">
+<h2 id="restore">ごみ箱・履歴・別コピーは、それぞれ役割が違う</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="横にスクロールできる比較表">
+<table>
+<thead>
+<tr>
+<th scope="col">仕組み</th>
+<th scope="col">役立つ場面</th>
+<th scope="col">事前に確かめること</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ごみ箱</td>
+<td>誤って削除したファイルを戻す</td>
+<td>保存期間、空にした後の扱い、容量条件</td>
+</tr>
+<tr>
+<td>バージョン履歴</td>
+<td>上書き前の状態に戻す</td>
+<td>記録される対象、世代数や期間、アカウント種別</td>
+</tr>
+<tr>
+<td>独立したバックアップ</td>
+<td>端末故障や元データの消失に備える</td>
+<td>保存先、更新頻度、復元手順、同時に失われないか</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>OneDriveのバージョン履歴は、以前の状態を選んで復元するための機能です。詳細は<a href="https://support.microsoft.com/en-us/onedrive/restore-a-previous-version-of-a-file-stored-in-onedrive" target="_blank" rel="noopener noreferrer">Microsoftの説明</a>を参照してください。履歴があるから永久に何でも復元できる、と考えるのではなく、自分の契約と設定でどこまで戻せるかを確認します。</p>
+<p>同じPCの別フォルダへコピーすることにも作業上の意味はありますが、PCの故障や盗難には一緒に巻き込まれます。外付けドライブでも、同じ場所に常時接続したままなら、同時に壊れる・誤って消す等の可能性を考える必要があります。</p>
+</section>
+<section aria-labelledby="plan">
+<h2 id="plan">大事なデータを一つ選び、戻す道筋を書く</h2>
+<p>まず、失うと困る対象を一つに絞ります。写真、制作ファイル、家計の記録など、何でも構いません。すべてを一度に整理しようとするより、一つについて「どこに原本があり、どの時点の状態へ戻せるか」を説明できるようにします。</p>
+<ul>
+<li>原本がある場所はどこか。</li>
+<li>別コピーはどこにあり、原本の削除に連動するか。</li>
+<li>最後にコピーしたのはいつか。</li>
+<li>PCが動かなくても、そのコピーを取り出せるか。</li>
+<li>パスワードや復旧手段を失ったとき、保存先へアクセスできるか。</li>
+</ul>
+<div class="download-box">
+<strong>記入用の確認メモ</strong>
+<p>個人情報を入力してこのサイトへ送る必要はありません。ダウンロードして、ご自身の端末で記入します。</p>
+<a class="button secondary" href="../samples/backup-checklist.txt" download>バックアップ確認メモを保存</a>
+</div>
+<p>更新頻度は、失ってよい期間から逆に考えます。毎日変更する制作ファイルと、月に一度しか更新しない書類では、必要な頻度が違います。「毎日が絶対」と決めるより、復元時にどれだけ作業をやり直せるかで考えると現実的です。</p>
+</section>
+<section aria-labelledby="test">
+<h2 id="test">本番を消さずに、復元を練習する</h2>
+<ol>
+<li>練習用のテキストファイルを作り、「初回の内容」と書いて保存します。</li>
+<li>利用予定のバックアップ方法で、その練習ファイルを保存します。</li>
+<li>元の練習ファイルを「変更後の内容」に書き換えます。削除する必要はありません。</li>
+<li>バックアップから、元のファイルとは別の練習フォルダへ復元します。</li>
+<li>復元したファイルが開けるか、「初回の内容」が残っているかを確認します。</li>
+</ol>
+<p>別フォルダへの復元に対応しないサービスでは、提供元の説明に従い、あくまで練習ファイルで確認してください。実際の重要ファイルを消して試す必要はありません。</p>
+<p>この手順は復元確認の設計例であり、特定のサービスの動作を実機検証した記録ではありません。サービス名だけで安心せず、残っているコピーを実際に開けるかまで確かめることが、この練習の目的です。</p>
+</section>
+<section class="sources">
+<h2 id="sources">参考資料・確認日</h2>
+<p>資料確認：2026年9月26日。機能や画面表記は更新により変わる場合があります。</p>
+<ul>
+<li>
+<a href="https://support.microsoft.com/en-us/onedrive/delete-files-or-folders-in-onedrive" target="_blank" rel="noopener noreferrer">Microsoft：OneDriveのファイル削除</a>
+</li>
+<li>
+<a href="https://support.microsoft.com/en-us/onedrive/restore-a-previous-version-of-a-file-stored-in-onedrive" target="_blank" rel="noopener noreferrer">Microsoft：OneDriveのバージョン履歴</a>
+</li>
+</ul>
+</section>
+<nav class="related" aria-label="関連記事">
+<h3>あわせて読みたい</h3>
+<a href="./zip-extract.html">ZIPは開くだけで使える？「展開」が必要な場面と手順 →</a>
+<a href="./pdf-text.html">PDFの文字がコピーできない。画像・制限・文字情報を順に確認する →</a>
+<a href="../articles.html">記事一覧へ戻る</a>
+</nav>
+<!-- 広告を導入する場合の候補位置。現在は広告・解析コードを設置していません。 -->
+</article>
+<aside class="toc">
+<h2>この記事の内容</h2>
+<ol>
+<li>
+<a href="#example">PCで消したら、クラウドにも反映されることがある</a>
+</li>
+<li>
+<a href="#restore">ごみ箱・履歴・別コピーは、それぞれ役割が違う</a>
+</li>
+<li>
+<a href="#plan">大事なデータを一つ選び、戻す道筋を書く</a>
+</li>
+<li>
+<a href="#test">本番を消さずに、復元を練習する</a>
+</li>
+<li>
+<a href="#sources">参考資料</a>
+</li>
+</ol>
+<div class="meta-note">このサイトの例示データは記事用に作成したものです。個人の書類やPC画面は使用していません。</div>
+</aside>
+</div>
+</main>
+<footer class="site-footer">
+<div class="wrap footer-inner">
+<div>
+<a class="brand" href="../index.html">データの道しるべ</a>
+<small>ファイルと画像の「分からない」を、ひとつずつ。</small>
+<small>© 2026 データの道しるべ</small>
+</div>
+<nav aria-label="フッターナビゲーション">
+<a href="../articles.html">記事一覧</a>
+<a href="../about.html">運営・編集方針</a>
+<a href="../privacy.html">プライバシーポリシー</a>
+<a href="../contact.html">お問い合わせ</a>
+</nav>
+</div>
+</footer>
+</body>
+</html>

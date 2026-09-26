@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PDFの文字がコピーできない。画像・制限・文字情報を順に確認する | データの道しるべ</title>
+  <meta name="description" content="PDFの文字を選べないとき、最初に確認することを整理。画像PDFとOCR、コピー制限、文字化けを見分け、必要な対応を選びます。">
+  <!-- DRAFT-NOINDEX: 公開URLと運営情報を確定後に削除します。 -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="データの道しるべ">
+  <meta property="og:title" content="PDFの文字がコピーできない。画像・制限・文字情報を順に確認する">
+  <meta property="og:description" content="PDFの文字を選べないとき、最初に確認することを整理。画像PDFとOCR、コピー制限、文字化けを見分け、必要な対応を選びます。">
+  <!-- PUBLIC-URL: 公開先の確定後にcanonicalとog:urlを追加します。 -->
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../style.css">
+  <script src="../script.js" defer>
+</script>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+<header class="site-header">
+<div class="wrap header-inner">
+<a class="brand" href="../index.html">
+<span class="mark" aria-hidden="true">↗</span>データの道しるべ</a>
+<nav aria-label="メインナビゲーション">
+<a href="../articles.html">記事一覧</a>
+<a href="../about.html">このサイトについて</a>
+<a href="../contact.html">お問い合わせ</a>
+</nav>
+</div>
+</header>
+<main id="main" class="wrap">
+<nav class="breadcrumb" aria-label="パンくず">
+<a href="../index.html">ホーム</a>
+<span>/</span>
+<a href="../articles.html">記事一覧</a>
+<span>/ PDF</span>
+</nav>
+<header class="page-heading">
+<p class="eyebrow">PDF / GUIDE 05</p>
+<h1>PDFの文字がコピーできない。画像・制限・文字情報を順に確認する</h1>
+<p class="lead">見えている文字が、文字データとは限りません。いきなり変換する前に原因を分けます。</p>
+<p class="meta">作成：<time datetime="2026-09-26">2026年9月26日</time>　・　約6分　・　<a href="../about.html">編集方針</a>
+</p>
+</header>
+<div class="article-layout">
+<article class="article">
+<div class="answer">
+<strong>先に答え</strong>
+<p>まず、文字を選択できるか、検索できるか、コピーした結果がどうなるかを確認します。画像しかないPDFならOCRが候補ですが、コピー制限や文字情報の問題なら別の対応が必要です。</p>
+</div>
+<section aria-labelledby="layers">
+<h2 id="layers">見た目が同じでも、中身は違う</h2>
+<p>紙を撮影した画像にも文字は写っていますが、コンピューターにとっては明暗や色の点の集まりです。一方、文書ソフトから作成したPDFでは、文字とその配置の情報が含まれることがあります。画面上で同じ文章に見えても、選択・検索・コピーの動作は異なります。</p>
+<figure class="diagram">
+<div class="compare-grid">
+<div class="flow-box">
+<b>文字情報があるPDF</b>
+<span>「A」「B」「C」という文字と配置</span>
+</div>
+<div class="flow-box">
+<b>画像だけのPDF</b>
+<span>ABCの形をした画素の集まり</span>
+</div>
+</div>
+<figcaption>実際のPDF画面ではなく、中身の違いを表した概念図です。画像にOCRの文字情報が重なったPDFもあります。</figcaption>
+</figure>
+<p>同じPDFの中でも、1ページ目は文字情報があり、2ページ目はスキャン画像だけ、ということがあります。1か所だけで判断せず、困っているページごとに確認します。</p>
+</section>
+<section aria-labelledby="diagnose">
+<h2 id="diagnose">変換する前に、3つの確認をする</h2>
+<ol>
+<li>
+<strong>文字選択の操作になっているか。</strong>閲覧アプリが手のひらツール等になっていないか確認し、短い単語をドラッグしてみます。</li>
+<li>
+<strong>検索できるか。</strong>ページに見えている特徴的な単語を、アプリの検索機能で探します。検索できないだけで画像PDFとは断定できませんが、手がかりになります。</li>
+<li>
+<strong>コピーした結果を見る。</strong>短い範囲をコピーできる場合は、ローカルのテキストエディターへ貼り付け、文字と順番を確認します。</li>
+</ol>
+<div class="table-scroll" tabindex="0" role="region" aria-label="横にスクロールできる比較表">
+<table>
+<thead>
+<tr>
+<th scope="col">起きていること</th>
+<th scope="col">考えられる原因</th>
+<th scope="col">次の確認</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>文字を選べず、検索にも出ない</td>
+<td>画像だけ、文字選択ツールが違う、制限など</td>
+<td>ツールと文書の権限を確認。画像ならOCRを検討</td>
+</tr>
+<tr>
+<td>選べるがコピーできない</td>
+<td>文書のコピー制限など</td>
+<td>権限表示を確認し、作成者へ相談</td>
+</tr>
+<tr>
+<td>コピーすると別の文字になる</td>
+<td>文字の対応情報などに問題がある可能性</td>
+<td>別の閲覧アプリで確認、元の文書を依頼</td>
+</tr>
+<tr>
+<td>文字は合っているが順序が乱れる</td>
+<td>段組みや表の配置の影響</td>
+<td>狭い範囲でコピーして原文と照合</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>この表は原因を絞るための目安です。複数の原因が重なることもあるため、一つの症状だけで確定はしません。コピーを制限された文書は、制限の回避ではなく作成者への確認を優先します。</p>
+</section>
+<section aria-labelledby="ocr">
+<h2 id="ocr">OCRは文字を推定する処理。照合までが作業</h2>
+<p>OCR（光学文字認識）は、画像の中の文字の形を解析し、文字データにする処理です。AdobeはAcrobatのOCR機能でスキャンPDFを検索・選択できる状態にする手順を案内しています。利用できる機能は製品・契約・バージョンで異なります。<a href="https://helpx.adobe.com/acrobat/desktop/create-documents/scan-documents-to-pdfs/recognize-text.html" target="_blank" rel="noopener noreferrer">Adobeの公式説明</a>
+</p>
+<p>OCR後も誤認識はあり得ます。たとえば数字の「0」と英字の「O」、数字の「1」と小文字の「l」、小数点やマイナス記号は、文章の意味や金額を変えることがあります。検索できるようになったことと、内容が正しいことは別に確認します。</p>
+<h3>確認範囲を先に決める</h3>
+<p>長い文書を全部OCRしてから見直すより、まず1ページで試し、必要な情報が正しく読めるかを確かめます。見出し、本文、表、縦書きなど、配置の違う部分を含めると、苦手な箇所を見つけやすくなります。</p>
+<ul>
+<li>名前・日付・金額・番号は原文と一字ずつ照合する。</li>
+<li>表は、文字だけでなく行と列の対応も確認する。</li>
+<li>読み取れない箇所を、推測で確定した情報にしない。</li>
+<li>元のPDFを残し、処理後のファイルは別名で保存する。</li>
+</ul>
+</section>
+<section aria-labelledby="privacy">
+<h2 id="privacy">文書を外部へ送る前に考えること</h2>
+<p>オンライン変換サービスは便利ですが、文書をアップロードすると、そのサービスへ内容を送ることになります。契約書、本人確認書類、社内資料などは、利用条件や所属先のルールを確かめてから扱います。単に「無料」という理由だけで選ぶ必要はありません。</p>
+<p>まずは、元のWord等の文書や、文字情報のあるPDFを作成者から受け取れるか確認すると、OCR自体が不要になる場合があります。公開資料なら提供元に別形式がないか探し、自分で作った資料なら元の編集ファイルを確認します。</p>
+<div class="note">
+<strong>最短で進めるための確認メモ</strong>
+<p>「どのページで」「選択・検索・コピーのどこができないか」「コピー結果はどうなるか」をメモしてから相談すると、単に「PDFが使えない」と伝えるより状況が共有しやすくなります。</p>
+</div>
+<p class="small">この記事は公式資料に基づく原因整理です。実在の個人文書、アプリのスクリーンショット、未実施のOCR実測結果は掲載していません。</p>
+</section>
+<section class="sources">
+<h2 id="sources">参考資料・確認日</h2>
+<p>資料確認：2026年9月26日。機能や画面表記は更新により変わる場合があります。</p>
+<ul>
+<li>
+<a href="https://helpx.adobe.com/acrobat/desktop/create-documents/scan-documents-to-pdfs/recognize-text.html" target="_blank" rel="noopener noreferrer">Adobe：スキャンPDFの文字認識</a>
+</li>
+</ul>
+</section>
+<nav class="related" aria-label="関連記事">
+<h3>あわせて読みたい</h3>
+<a href="./sync-backup.html">同期とバックアップは同じ？「消したとき」を考えると違いが分かる →</a>
+<a href="./image-formats.html">JPG・PNG・WebP、どれを選ぶ？ 同じ画像を保存して比べる →</a>
+<a href="../articles.html">記事一覧へ戻る</a>
+</nav>
+<!-- 広告を導入する場合の候補位置。現在は広告・解析コードを設置していません。 -->
+</article>
+<aside class="toc">
+<h2>この記事の内容</h2>
+<ol>
+<li>
+<a href="#layers">見た目が同じでも、中身は違う</a>
+</li>
+<li>
+<a href="#diagnose">変換する前に、3つの確認をする</a>
+</li>
+<li>
+<a href="#ocr">OCRは文字を推定する処理。照合までが作業</a>
+</li>
+<li>
+<a href="#privacy">文書を外部へ送る前に考えること</a>
+</li>
+<li>
+<a href="#sources">参考資料</a>
+</li>
+</ol>
+<div class="meta-note">このサイトの例示データは記事用に作成したものです。個人の書類やPC画面は使用していません。</div>
+</aside>
+</div>
+</main>
+<footer class="site-footer">
+<div class="wrap footer-inner">
+<div>
+<a class="brand" href="../index.html">データの道しるべ</a>
+<small>ファイルと画像の「分からない」を、ひとつずつ。</small>
+<small>© 2026 データの道しるべ</small>
+</div>
+<nav aria-label="フッターナビゲーション">
+<a href="../articles.html">記事一覧</a>
+<a href="../about.html">運営・編集方針</a>
+<a href="../privacy.html">プライバシーポリシー</a>
+<a href="../contact.html">お問い合わせ</a>
+</nav>
+</div>
+</footer>
+</body>
+</html>

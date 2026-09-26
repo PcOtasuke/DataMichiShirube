@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JPG・PNG・WebP、どれを選ぶ？ 同じ画像を保存して比べる | データの道しるべ</title>
+  <meta name="description" content="文字・細線・グラデーションを含む自作サンプルを3形式で保存。バイト数と設定を公開し、画像の用途に合わせた選び方を説明します。">
+  <!-- DRAFT-NOINDEX: 公開URLと運営情報を確定後に削除します。 -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="データの道しるべ">
+  <meta property="og:title" content="JPG・PNG・WebP、どれを選ぶ？ 同じ画像を保存して比べる">
+  <meta property="og:description" content="文字・細線・グラデーションを含む自作サンプルを3形式で保存。バイト数と設定を公開し、画像の用途に合わせた選び方を説明します。">
+  <!-- PUBLIC-URL: 公開先の確定後にcanonicalとog:urlを追加します。 -->
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../style.css">
+  <script src="../script.js" defer>
+</script>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+<header class="site-header">
+<div class="wrap header-inner">
+<a class="brand" href="../index.html">
+<span class="mark" aria-hidden="true">↗</span>データの道しるべ</a>
+<nav aria-label="メインナビゲーション">
+<a href="../articles.html">記事一覧</a>
+<a href="../about.html">このサイトについて</a>
+<a href="../contact.html">お問い合わせ</a>
+</nav>
+</div>
+</header>
+<main id="main" class="wrap">
+<nav class="breadcrumb" aria-label="パンくず">
+<a href="../index.html">ホーム</a>
+<span>/</span>
+<a href="../articles.html">記事一覧</a>
+<span>/ 画像</span>
+</nav>
+<header class="page-heading">
+<p class="eyebrow">画像 / GUIDE 02</p>
+<h1>JPG・PNG・WebP、どれを選ぶ？ 同じ画像を保存して比べる</h1>
+<p class="lead">「JPEGなら必ず小さい」とは限りません。同じ画素のサンプルで容量と使いどころを比べます。</p>
+<p class="meta">作成：<time datetime="2026-09-26">2026年9月26日</time>　・　約7分　・　<a href="../about.html">編集方針</a>
+</p>
+</header>
+<div class="article-layout">
+<article class="article">
+<div class="answer">
+<strong>先に答え</strong>
+<p>受け取り先の指定があればそれを優先します。指定がなければ、写真の共有にはJPEG、文字や透明部分を保ちたい図にはPNG、対応するWeb掲載先にはWebPを候補にし、実際の容量と見た目で決めます。</p>
+</div>
+<section aria-labelledby="basics">
+<h2 id="basics">まずは「何を残したいか」で選ぶ</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="横にスクロールできる比較表">
+<table>
+<thead>
+<tr>
+<th scope="col">形式</th>
+<th scope="col">特徴</th>
+<th scope="col">選ぶときの確認</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>JPEG（.jpg / .jpeg）</td>
+<td>一般的な保存では非可逆圧縮。透明部分は保持できない</td>
+<td>写真の共有先で使えるか、文字の輪郭が崩れていないか</td>
+</tr>
+<tr>
+<td>PNG</td>
+<td>可逆圧縮。透明部分を扱える</td>
+<td>図や文字をくっきり保ちたいか。写真では容量が増える場合がある</td>
+</tr>
+<tr>
+<td>WebP</td>
+<td>可逆・非可逆の両方と透明部分に対応</td>
+<td>提出先や編集ソフトが受け付けるか</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>可逆圧縮は、圧縮前の画素を元に戻せる方式です。非可逆圧縮は、一部の情報を省いて容量を減らします。非可逆で保存したものを後からPNGに変えても、失われた細部が戻るわけではありません。形式の性質は<a href="https://developer.mozilla.org/en-US/docs/Web/Media/Guides/Formats/Image_types" target="_blank" rel="noopener noreferrer">MDNの画像形式ガイド</a>で確認できます。</p>
+<p>「拡張子を .jpg に書き換える」だけでは変換になりません。変えるのはファイル名の表示だけです。画像ソフトの書き出し機能などで、内容自体を目的の形式に変換してください。</p>
+</section>
+<section aria-labelledby="experiment">
+<h2 id="experiment">同じ画素から3形式を書き出した結果</h2>
+<p>この記事では、文字、細い色線、単色の長方形、なめらかな色の変化を含む1200×800pxの図を自作しました。写真やPCの画面を撮影したものではありません。SVGを一度RGBの画素に変換し、同じ画素から各形式へ保存しました。</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="横にスクロールできる比較表">
+<table>
+<thead>
+<tr>
+<th scope="col">出力</th>
+<th scope="col">設定</th>
+<th scope="col">容量（実測）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PNG</td>
+<td>圧縮レベル9</td>
+<td>27,898 B（27.2 KiB）</td>
+</tr>
+<tr>
+<td>JPEG</td>
+<td>品質80 / 4:2:0</td>
+<td>53,392 B（52.1 KiB）</td>
+</tr>
+<tr>
+<td>WebP</td>
+<td>非可逆・品質80</td>
+<td>16,094 B（15.7 KiB）</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>
+<strong>この図では、JPEGがPNGより大きくなりました。</strong>写真のような連続的な色変化だけでなく、細線や文字が多い図なので、「JPEGが必ず最小」という結果にはなりません。WebPが最小ですが、この1枚だけで、あらゆる画像に同じ順位が当てはまるとは言えません。</p>
+<p>容量は出力ファイルのバイト数です。1 KiB＝1024バイトで表示しています。「品質80」はソフトや形式にまたがる共通の画質尺度ではなく、同じ80を指定しても同じ劣化量になるとは限りません。</p>
+<div class="note">
+<strong>再現条件</strong>
+<p>計測日：2026年9月26日。sharp 0.35.4 / libvips 8.18.6。PNGのパレット化なし。JPEGはクロマサブサンプリング4:2:0、WebPは非可逆圧縮。EXIF・XMP・IPTCを含まないことを確認済みです。元の図は人工的なテスト図で、実写写真の代表ではありません。</p>
+</div>
+</section>
+<section aria-labelledby="compare">
+<h2 id="compare">形式を切り替えて、自分の目で確かめる</h2>
+<p>全体を見るときは文字の読みやすさ、細部を見るときは細い赤・青の線、グラデーションの境目を比較してください。下の表示は画面幅に合わせて縮小されるので、厳密に比べるなら同じ倍率で元画像を開きます。</p>
+<div class="controls-row">
+<label for="sample-format">表示する形式<select id="sample-format">
+<option value="png">PNG</option>
+<option value="jpg">JPEG</option>
+<option value="webp">WebP</option>
+</select>
+</label>
+<a id="format-download" class="button secondary" href="../samples/sample.png" download>選んだ画像を保存</a>
+</div>
+<figure>
+<img class="sample-image" id="format-image" src="../samples/sample.png" width="1200" height="800" alt="自作の形式比較サンプル（PNG）。文字、色線、グラデーションを配置">
+<figcaption id="format-result" aria-live="polite">PNG：27,898バイト / 27.2 KiB / 1200 × 800 px</figcaption>
+</figure>
+<p class="small">画像選択やアップロードはありません。このサイトのサンプルだけを切り替えます。JavaScriptが使えない場合は、次のリンクから直接比較できます。</p>
+<p>
+<a href="../samples/sample.png">PNG</a> ／ <a href="../samples/sample.jpg">JPEG</a> ／ <a href="../samples/sample.webp">WebP</a> ／ <a href="../samples/source.svg" download>元の図（SVG）</a> ／ <a href="../samples/measurements.csv" download>計測結果（CSV）</a>
+</p>
+</section>
+<section aria-labelledby="decision">
+<h2 id="decision">迷ったときの順番</h2>
+<ol>
+<li>
+<strong>提出条件を見る。</strong>「JPEGのみ」「2MB以下」などの指定を先に確認します。新しい形式でも、相手が開けなければ目的を果たせません。</li>
+<li>
+<strong>透明部分が必要か決める。</strong>ロゴを別の背景に重ねるならPNGやWebPを候補にします。今回の比較サンプルは不透明なので、透明部分の比較には使えません。</li>
+<li>
+<strong>文字と写真のどちらが中心か見る。</strong>小さい文字を読ませる図では、読めることを優先します。容量だけを見て強く圧縮しないようにします。</li>
+<li>
+<strong>元データを残して書き出す。</strong>元のPNGからJPEGを作るなど、基準となる原本を残します。JPEGの保存を繰り返すと、設定により劣化が積み重なります。</li>
+<li>
+<strong>実際の掲載サイズで確認する。</strong>スマートフォンでも、細字が読めるかを確認します。元画像だけが鮮明でも、ページ上で極端に縮小すると情報が伝わりません。</li>
+</ol>
+<p>写真なら写真、図なら図として、最終的に使うものと似た素材で比較するのが大切です。この記事のサンプルを練習に使った後は、公開してよい自分の画像で同じ考え方を試してください。</p>
+</section>
+<section class="sources">
+<h2 id="sources">参考資料・確認日</h2>
+<p>資料確認：2026年9月26日。機能や画面表記は更新により変わる場合があります。</p>
+<ul>
+<li>
+<a href="https://developer.mozilla.org/en-US/docs/Web/Media/Guides/Formats/Image_types" target="_blank" rel="noopener noreferrer">MDN：画像形式と特徴</a>
+</li>
+<li>
+<a href="https://sharp.pixelplumbing.com/api-output/" target="_blank" rel="noopener noreferrer">sharp：出力設定</a>
+</li>
+</ul>
+</section>
+<nav class="related" aria-label="関連記事">
+<h3>あわせて読みたい</h3>
+<a href="./image-size.html">画像の「サイズ」を小さくしたい。寸法・容量・圧縮を分けて考える →</a>
+<a href="./zip-extract.html">ZIPは開くだけで使える？「展開」が必要な場面と手順 →</a>
+<a href="../articles.html">記事一覧へ戻る</a>
+</nav>
+<!-- 広告を導入する場合の候補位置。現在は広告・解析コードを設置していません。 -->
+</article>
+<aside class="toc">
+<h2>この記事の内容</h2>
+<ol>
+<li>
+<a href="#basics">まずは「何を残したいか」で選ぶ</a>
+</li>
+<li>
+<a href="#experiment">同じ画素から3形式を書き出した結果</a>
+</li>
+<li>
+<a href="#compare">形式を切り替えて、自分の目で確かめる</a>
+</li>
+<li>
+<a href="#decision">迷ったときの順番</a>
+</li>
+<li>
+<a href="#sources">参考資料</a>
+</li>
+</ol>
+<div class="meta-note">このサイトの例示データは記事用に作成したものです。個人の書類やPC画面は使用していません。</div>
+</aside>
+</div>
+</main>
+<footer class="site-footer">
+<div class="wrap footer-inner">
+<div>
+<a class="brand" href="../index.html">データの道しるべ</a>
+<small>ファイルと画像の「分からない」を、ひとつずつ。</small>
+<small>© 2026 データの道しるべ</small>
+</div>
+<nav aria-label="フッターナビゲーション">
+<a href="../articles.html">記事一覧</a>
+<a href="../about.html">運営・編集方針</a>
+<a href="../privacy.html">プライバシーポリシー</a>
+<a href="../contact.html">お問い合わせ</a>
+</nav>
+</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ZIPは開くだけで使える？「展開」が必要な場面と手順 | データの道しるべ</title>
+  <meta name="description" content="ZIPを開くことと展開することの違いを、練習用ファイルで確認。Windows 11の展開手順、二重フォルダ、ZIPが小さくならない理由を解説します。">
+  <!-- DRAFT-NOINDEX: 公開URLと運営情報を確定後に削除します。 -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="データの道しるべ">
+  <meta property="og:title" content="ZIPは開くだけで使える？「展開」が必要な場面と手順">
+  <meta property="og:description" content="ZIPを開くことと展開することの違いを、練習用ファイルで確認。Windows 11の展開手順、二重フォルダ、ZIPが小さくならない理由を解説します。">
+  <!-- PUBLIC-URL: 公開先の確定後にcanonicalとog:urlを追加します。 -->
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../style.css">
+  <script src="../script.js" defer>
+</script>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+<header class="site-header">
+<div class="wrap header-inner">
+<a class="brand" href="../index.html">
+<span class="mark" aria-hidden="true">↗</span>データの道しるべ</a>
+<nav aria-label="メインナビゲーション">
+<a href="../articles.html">記事一覧</a>
+<a href="../about.html">このサイトについて</a>
+<a href="../contact.html">お問い合わせ</a>
+</nav>
+</div>
+</header>
+<main id="main" class="wrap">
+<nav class="breadcrumb" aria-label="パンくず">
+<a href="../index.html">ホーム</a>
+<span>/</span>
+<a href="../articles.html">記事一覧</a>
+<span>/ ファイル</span>
+</nav>
+<header class="page-heading">
+<p class="eyebrow">ファイル / GUIDE 01</p>
+<h1>ZIPは開くだけで使える？「展開」が必要な場面と手順</h1>
+<p class="lead">中身が見えることと、作業できる状態になることは別。練習用ZIPで保存先まで確認します。</p>
+<p class="meta">作成：<time datetime="2026-09-26">2026年9月26日</time>　・　約6分　・　<a href="../about.html">編集方針</a>
+</p>
+</header>
+<div class="article-layout">
+<article class="article">
+<div class="answer">
+<strong>先に答え</strong>
+<p>編集したり、複数のファイルをまとめて使ったりするなら、先にZIPを展開します。中身を見るだけで済む場合もありますが、初心者は「展開先の普通のフォルダで作業する」と決めると迷いにくくなります。</p>
+</div>
+<section aria-labelledby="difference">
+<h2 id="difference">「開く」と「展開する」は何が違う？</h2>
+<p>ZIPは、複数のファイルとフォルダ構成を一つにまとめるための形式です。エクスプローラーで開くと普通のフォルダのように見えるため、「もう取り出せている」と思いやすいのですが、画面に一覧が見えることと、別の場所に取り出したことは同じではありません。</p>
+<p>展開は、ZIPの中のファイルを、指定した場所に取り出す操作です。元のZIPは通常そのまま残ります。「箱を開いて中身を見る」と「机の上に中身を並べる」を区別すると、編集したファイルをどこへ保存すればよいかも整理できます。</p>
+<figure class="diagram">
+<div class="flow">
+<div class="flow-box">
+<b>practice.zip</b>
+<span>一つにまとまった状態</span>
+</div>
+<span aria-hidden="true">→</span>
+<div class="flow-box">
+<b>展開先フォルダ</b>
+<span>メモ・画像を個別に使う</span>
+</div>
+</div>
+<figcaption>ZIP自体と、展開されたフォルダは別に存在します。画面のスクリーンショットではなく概念図です。</figcaption>
+</figure>
+</section>
+<section aria-labelledby="practice">
+<h2 id="practice">練習用ZIPで、展開先を確かめる</h2>
+<p>このサイト専用のダミーファイルを用意しました。個人の書類や写真を使う必要はありません。中身は2つの短いテキストと、自作の比較用画像です。実行プログラムは含めていません。</p>
+<div class="download-box">
+<strong>練習用データ</strong>
+<p>ZIPを保存し、次の手順で展開します。ファイル名は <code>zip-practice.zip</code> です。</p>
+<a class="button" href="../samples/zip-practice.zip" download>練習用ZIPをダウンロード</a>
+</div>
+<ol>
+<li>エクスプローラーで保存先を開き、<code>zip-practice.zip</code> を探します。</li>
+<li>ZIPを右クリックし、<strong>「すべて展開」</strong>を選びます。Windowsの言語や更新状態によって表記が異なる場合があります。</li>
+<li>展開先を確認します。練習では、新しく作る <code>zip-practice</code> というフォルダを使うと分かりやすくなります。</li>
+<li>展開を実行し、開いたフォルダで以下の3ファイルを確認します。</li>
+</ol>
+<pre>zip-practice/
+├─ read-me.txt
+├─ notes/
+│  └─ memo.txt
+└─ images/
+   └─ sample.png</pre>
+<p>次に <code>notes/memo.txt</code> を開き、末尾に「練習」と書いて保存し、いったん閉じてから開き直します。文字が残っていれば、その展開先で編集と保存ができています。元のZIPを開き直すのではなく、展開先の <code>memo.txt</code> を開くのが確認のポイントです。</p>
+<p class="small">操作手順は<a href="https://support.microsoft.com/ja-jp/windows/experience/storage-filemanagement/zip-and-unzip-files" target="_blank" rel="noopener noreferrer">Microsoftの公式案内</a>に基づきます。この記事制作時にはWindows画面の撮影・GUI実機操作は行っていません。練習ZIPの内容と展開後のデータ一致はプログラムで検証しています。</p>
+</section>
+<section aria-labelledby="choose">
+<h2 id="choose">展開するか迷ったときの判断表</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="横にスクロールできる比較表">
+<table>
+<thead>
+<tr>
+<th scope="col">やりたいこと</th>
+<th scope="col">選ぶ操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>中のファイル名を確認する</td>
+<td>ZIPを開いて一覧を見る</td>
+</tr>
+<tr>
+<td>メモを編集し、その後も使う</td>
+<td>展開先を決めてから編集する</td>
+</tr>
+<tr>
+<td>HTMLと画像など、関連する複数ファイルを使う</td>
+<td>フォルダ構成を保ったまま全体を展開する</td>
+</tr>
+<tr>
+<td>相手から「ZIPで送って」と指定された</td>
+<td>中身を確認したうえでZIP自体を送る</td>
+</tr>
+<tr>
+<td>Webサイトのファイルとして公開する</td>
+<td>公開先の仕様を確認する。ZIPを置くだけでは通常HTMLサイトにならない</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>たとえばHTMLと画像を別々の場所に移すと、HTMLに書かれた相対パスと画像の位置が合わなくなります。解凍後に整理したくなっても、まずは出力された構成のまま動くか確かめると、原因を切り分けやすくなります。</p>
+</section>
+<section aria-labelledby="trouble">
+<h2 id="trouble">よくある3つのつまずき</h2>
+<h3>同じ名前のフォルダが二重になった</h3>
+<p>ZIPの中にも同名フォルダがあると、展開時に作ったフォルダと重なります。名前だけで失敗と判断せず、中へ進んで目的のファイルがあるか確認してください。練習データの場合は、上の構成と照らし合わせます。</p>
+<h3>ZIPにしたのに小さくならない</h3>
+<p>ZIPには「一つにまとめる」役割もあります。既に圧縮されたJPEGなどは、ZIPにしてもほとんど小さくならないことがあります。写真を送信容量に収めたい場合は、ZIPを繰り返すより、画像の寸法や保存品質を検討します。</p>
+<h3>展開先に同じ名前のファイルがある</h3>
+<p>上書きを急がず、新しい空のフォルダへ展開します。編集済みのファイルと、配布元の元データを混ぜないためです。作業用と保管用を分けておくと、どちらが最新かも分かりやすくなります。</p>
+<div class="note">
+<strong>終わりの確認</strong>
+<p>展開先を説明できる、必要なファイルがそろっている、編集したファイルを開き直せる。この3点を確認してから、元のZIPを保管するか整理するかを決めましょう。</p>
+</div>
+</section>
+<section class="sources">
+<h2 id="sources">参考資料・確認日</h2>
+<p>資料確認：2026年9月26日。機能や画面表記は更新により変わる場合があります。</p>
+<ul>
+<li>
+<a href="https://support.microsoft.com/ja-jp/windows/experience/storage-filemanagement/zip-and-unzip-files" target="_blank" rel="noopener noreferrer">Microsoft：ファイルを圧縮および展開する</a>
+</li>
+</ul>
+</section>
+<nav class="related" aria-label="関連記事">
+<h3>あわせて読みたい</h3>
+<a href="./image-size.html">画像の「サイズ」を小さくしたい。寸法・容量・圧縮を分けて考える →</a>
+<a href="./image-formats.html">JPG・PNG・WebP、どれを選ぶ？ 同じ画像を保存して比べる →</a>
+<a href="../articles.html">記事一覧へ戻る</a>
+</nav>
+<!-- 広告を導入する場合の候補位置。現在は広告・解析コードを設置していません。 -->
+</article>
+<aside class="toc">
+<h2>この記事の内容</h2>
+<ol>
+<li>
+<a href="#difference">「開く」と「展開する」は何が違う？</a>
+</li>
+<li>
+<a href="#practice">練習用ZIPで、展開先を確かめる</a>
+</li>
+<li>
+<a href="#choose">展開するか迷ったときの判断表</a>
+</li>
+<li>
+<a href="#trouble">よくある3つのつまずき</a>
+</li>
+<li>
+<a href="#sources">参考資料</a>
+</li>
+</ol>
+<div class="meta-note">このサイトの例示データは記事用に作成したものです。個人の書類やPC画面は使用していません。</div>
+</aside>
+</div>
+</main>
+<footer class="site-footer">
+<div class="wrap footer-inner">
+<div>
+<a class="brand" href="../index.html">データの道しるべ</a>
+<small>ファイルと画像の「分からない」を、ひとつずつ。</small>
+<small>© 2026 データの道しるべ</small>
+</div>
+<nav aria-label="フッターナビゲーション">
+<a href="../articles.html">記事一覧</a>
+<a href="../about.html">運営・編集方針</a>
+<a href="../privacy.html">プライバシーポリシー</a>
+<a href="../contact.html">お問い合わせ</a>
+</nav>
+</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>画像の「サイズ」を小さくしたい。寸法・容量・圧縮を分けて考える | データの道しるべ</title>
+  <meta name="description" content="画像の幅と高さ、画素数、ファイル容量は別の数値です。縦横比の計算機と実測サンプルで、縮小と圧縮の違いを確認できます。">
+  <!-- DRAFT-NOINDEX: 公開URLと運営情報を確定後に削除します。 -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="データの道しるべ">
+  <meta property="og:title" content="画像の「サイズ」を小さくしたい。寸法・容量・圧縮を分けて考える">
+  <meta property="og:description" content="画像の幅と高さ、画素数、ファイル容量は別の数値です。縦横比の計算機と実測サンプルで、縮小と圧縮の違いを確認できます。">
+  <!-- PUBLIC-URL: 公開先の確定後にcanonicalとog:urlを追加します。 -->
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../style.css">
+  <script src="../script.js" defer>
+</script>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+<header class="site-header">
+<div class="wrap header-inner">
+<a class="brand" href="../index.html">
+<span class="mark" aria-hidden="true">↗</span>データの道しるべ</a>
+<nav aria-label="メインナビゲーション">
+<a href="../articles.html">記事一覧</a>
+<a href="../about.html">このサイトについて</a>
+<a href="../contact.html">お問い合わせ</a>
+</nav>
+</div>
+</header>
+<main id="main" class="wrap">
+<nav class="breadcrumb" aria-label="パンくず">
+<a href="../index.html">ホーム</a>
+<span>/</span>
+<a href="../articles.html">記事一覧</a>
+<span>/ 画像</span>
+</nav>
+<header class="page-heading">
+<p class="eyebrow">画像 / GUIDE 03</p>
+<h1>画像の「サイズ」を小さくしたい。寸法・容量・圧縮を分けて考える</h1>
+<p class="lead">「2MB以下」と「横1200px」は別の条件。縦横比の計算機と実測例で整理します。</p>
+<p class="meta">作成：<time datetime="2026-09-26">2026年9月26日</time>　・　約6分　・　<a href="../about.html">編集方針</a>
+</p>
+</header>
+<div class="article-layout">
+<article class="article">
+<div class="answer">
+<strong>先に答え</strong>
+<p>送信上限に収めるなら「容量」、画面に合う大きさにするなら「幅・高さ」を確認します。まず必要な寸法に縮小し、その後に保存形式や品質を調整すると、何を変えたか分かりやすくなります。</p>
+</div>
+<section aria-labelledby="numbers">
+<h2 id="numbers">画像には別々の「大きさ」がある</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="横にスクロールできる比較表">
+<table>
+<thead>
+<tr>
+<th scope="col">数値</th>
+<th scope="col">意味</th>
+<th scope="col">例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>幅×高さ（px）</td>
+<td>画像を構成する画素の並び</td>
+<td>1200×800px</td>
+</tr>
+<tr>
+<td>画素数</td>
+<td>幅と高さを掛けた数</td>
+<td>960,000画素</td>
+</tr>
+<tr>
+<td>ファイル容量（B・KB・MB等）</td>
+<td>保存や転送に必要なデータ量</td>
+<td>53,392バイト</td>
+</tr>
+<tr>
+<td>画面上の表示幅</td>
+<td>ページやアプリが表示する大きさ</td>
+<td>同じ画像でもスマートフォンでは小さく表示</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>「サイズを小さくして」と言われたときは、どの数値のことかを確かめます。幅だけ小さく表示しても、元の画像ファイルが変わらなければ、ダウンロードする量はそのままです。逆に保存品質を下げれば、幅と高さを保ったまま容量を減らせる場合があります。</p>
+<p>印刷では、同じ画素数でも印刷する実寸によって細かさが変わります。この記事はWeb共有やファイル送信を対象としており、印刷用の解像度設定とは分けて考えます。</p>
+</section>
+<section aria-labelledby="calculator">
+<h2 id="calculator">縦横比を保った縮小を計算する</h2>
+<p>1200×800pxの画像を幅600pxにすると、高さは400pxです。幅も高さも半分なので、画素数は4分の1になります。幅だけ600px、高さは800pxのままにすると、縦に細長く変形してしまいます。</p>
+<form id="resize-form">
+<div class="controls-row">
+<label for="original-width">元の幅（px）<input id="original-width" type="number" min="1" max="100000" step="1" value="1200" required>
+</label>
+<label for="original-height">元の高さ（px）<input id="original-height" type="number" min="1" max="100000" step="1" value="800" required>
+</label>
+<label for="target-width">変更後の幅（px）<input id="target-width" type="number" min="1" max="100000" step="1" value="600" required>
+</label>
+</div>
+<button class="button" type="submit">高さと画素数を計算</button>
+<p class="result" id="resize-result" aria-live="polite">600 × 400 px。画素数は元の25.0％です。ファイル容量が25％になるとは限りません。</p>
+</form>
+<p class="small">入力した数値はブラウザー内だけで計算し、送信・保存しません。画像を選択する機能はありません。</p>
+<pre>変更後の高さ ＝ 元の高さ × 変更後の幅 ÷ 元の幅
+画素数の比率 ＝ 変更後の画素数 ÷ 元の画素数</pre>
+<p>高さは整数に丸めます。小さすぎる寸法では比率に丸め誤差が生じます。必要以上に拡大しても、元にない細部が戻るわけではありません。</p>
+</section>
+<section aria-labelledby="measured">
+<h2 id="measured">画素数25％でも、容量は約39％だった</h2>
+<p>形式比較の記事と同じ人工サンプルを、同じJPEG品質80で2通り保存しました。どちらも原本の画素から直接作成しており、大きいJPEGを再圧縮したものではありません。</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="横にスクロールできる比較表">
+<table>
+<thead>
+<tr>
+<th scope="col">寸法</th>
+<th scope="col">画素数</th>
+<th scope="col">容量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1200×800px</td>
+<td>960,000</td>
+<td>53,392 B</td>
+</tr>
+<tr>
+<td>600×400px</td>
+<td>240,000（25％）</td>
+<td>20,983 B（約39.3％）</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>この実測では、画素数と容量は同じ割合になりませんでした。画像の内容、圧縮方式、書き出し設定にも左右されるため、「幅を半分にすれば必ず容量も半分」と計算することはできません。</p>
+<div class="compare-grid">
+<figure>
+<a href="../samples/sample.jpg">
+<img src="../samples/sample.jpg" width="1200" height="800" loading="lazy" alt="1200×800pxの自作比較画像">
+</a>
+<figcaption>1200×800px / 53,392 B</figcaption>
+</figure>
+<figure>
+<a href="../samples/sample-small.jpg">
+<img src="../samples/sample-small.jpg" width="600" height="400" loading="lazy" alt="600×400pxに縮小した自作比較画像">
+</a>
+<figcaption>600×400px / 20,983 B</figcaption>
+</figure>
+</div>
+<p class="small">上では同じ表示幅で並べています。リンクから画像を開くと元の寸法で確認できます。計測：2026年9月26日、sharp 0.35.4、JPEG品質80、4:2:0、縮小は既定のLanczos3。人物写真やスクリーンショットは使用していません。</p>
+</section>
+<section aria-labelledby="workflow">
+<h2 id="workflow">容量制限があるときの作業順</h2>
+<ol>
+<li>
+<strong>相手の指定を確認する。</strong>例として「JPEG・横1200px以下・1MB以下」のように、形式、寸法、容量を別々にメモします。指定がない条件を自己判断で追加する必要はありません。</li>
+<li>
+<strong>原本のコピーを作る。</strong>ファイル名に <code>-send</code> などの区別を付けます。原本を上書きせず、やり直せる状態にします。</li>
+<li>
+<strong>必要な寸法まで縮小する。</strong>縦横比を固定します。文字が含まれるなら、実際に読む大きさで読めるかを先に確認します。</li>
+<li>
+<strong>容量を確認する。</strong>上限を超えた場合だけ保存品質を下げるなど、次の調整をします。形式や品質は、使うアプリの保存・書き出し画面で指定します。</li>
+<li>
+<strong>完成ファイルを開き直す。</strong>読みやすさ、色、透明部分、容量を確認します。提出先によってMBの扱いや上限判定が異なる場合があるため、上限ぎりぎりではなく少し余裕を持たせます。</li>
+</ol>
+<p>機密書類や個人写真なら、容量を減らすためだけに外部の変換サイトへ送る前に、端末内の画像ソフトで処理できるかを検討してください。この記事の計算機は画像ファイルに触れず、寸法の数値だけを扱います。</p>
+</section>
+<section class="sources">
+<h2 id="sources">参考資料・確認日</h2>
+<p>資料確認：2026年9月26日。機能や画面表記は更新により変わる場合があります。</p>
+<ul>
+<li>
+<a href="https://sharp.pixelplumbing.com/api-resize/" target="_blank" rel="noopener noreferrer">sharp：画像のリサイズ</a>
+</li>
+<li>
+<a href="https://sharp.pixelplumbing.com/api-output/" target="_blank" rel="noopener noreferrer">sharp：画像の保存設定</a>
+</li>
+</ul>
+</section>
+<nav class="related" aria-label="関連記事">
+<h3>あわせて読みたい</h3>
+<a href="./image-formats.html">JPG・PNG・WebP、どれを選ぶ？ 同じ画像を保存して比べる →</a>
+<a href="./zip-extract.html">ZIPは開くだけで使える？「展開」が必要な場面と手順 →</a>
+<a href="../articles.html">記事一覧へ戻る</a>
+</nav>
+<!-- 広告を導入する場合の候補位置。現在は広告・解析コードを設置していません。 -->
+</article>
+<aside class="toc">
+<h2>この記事の内容</h2>
+<ol>
+<li>
+<a href="#numbers">画像には別々の「大きさ」がある</a>
+</li>
+<li>
+<a href="#calculator">縦横比を保った縮小を計算する</a>
+</li>
+<li>
+<a href="#measured">画素数25％でも、容量は約39％だった</a>
+</li>
+<li>
+<a href="#workflow">容量制限があるときの作業順</a>
+</li>
+<li>
+<a href="#sources">参考資料</a>
+</li>
+</ol>
+<div class="meta-note">このサイトの例示データは記事用に作成したものです。個人の書類やPC画面は使用していません。</div>
+</aside>
+</div>
+</main>
+<footer class="site-footer">
+<div class="wrap footer-inner">
+<div>
+<a class="brand" href="../index.html">データの道しるべ</a>
+<small>ファイルと画像の「分からない」を、ひとつずつ。</small>
+<small>© 2026 データの道しるべ</small>
+</div>
+<nav aria-label="フッターナビゲーション">
+<a href="../articles.html">記事一覧</a>
+<a href="../about.html">運営・編集方針</a>
+<a href="../privacy.html">プライバシーポリシー</a>
+<a href="../contact.html">お問い合わせ</a>
+</nav>
+</div>
+</footer>
+</body>
+</html>

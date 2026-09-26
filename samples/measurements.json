@@ -1,0 +1,53 @@
+{
+  "date": "2026-09-26",
+  "method": "Synthetic SVG rasterized once into RGB; each format encoded from those same pixels. No real photos or screenshots.",
+  "software": {
+    "sharp": "0.35.4",
+    "vips": "8.18.6"
+  },
+  "samples": [
+    {
+      "file": "sample.png",
+      "format": "PNG",
+      "options": {
+        "compressionLevel": 9
+      },
+      "bytes": 27898,
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "sample.jpg",
+      "format": "JPEG",
+      "options": {
+        "quality": 80,
+        "chromaSubsampling": "4:2:0"
+      },
+      "bytes": 53392,
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "sample.webp",
+      "format": "WebP",
+      "options": {
+        "quality": 80
+      },
+      "bytes": 16094,
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "sample-small.jpg",
+      "format": "JPEG・幅600px",
+      "options": {
+        "quality": 80,
+        "chromaSubsampling": "4:2:0"
+      },
+      "resize": 600,
+      "bytes": 20983,
+      "width": 600,
+      "height": 400
+    }
+  ]
+}

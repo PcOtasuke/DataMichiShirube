@@ -1,0 +1,5 @@
+file,format,width,height,bytes
+sample.png,PNG,1200,800,27898
+sample.jpg,JPEG,1200,800,53392
+sample.webp,WebP,1200,800,16094
+sample-small.jpg,JPEG・幅600px,600,400,20983
